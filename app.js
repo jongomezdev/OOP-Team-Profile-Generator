@@ -14,13 +14,13 @@ function phoneNumber(phone) {
   return phoneno.test(phone);
 }
 
-async function genEmployee() {
+async function init() {
   const managerInfo = await inquirer.prompt([
     {
       type: "input",
       name: "name",
       message: "What is the team manager's name?",
-      validate: async function (input) {
+      validate: async (input) => {
         if (input.length <= 0) return "Please enter a name";
         return true;
       },
@@ -29,7 +29,7 @@ async function genEmployee() {
       type: "input",
       name: "id",
       message: "What is the team manager's id?",
-      validate: async function (input) {
+      validate: async (input) => {
         if (input > 0) {
           return true;
         } else {
@@ -41,7 +41,7 @@ async function genEmployee() {
       type: "input",
       name: "email",
       message: "What is the team manager's email?",
-      validate: async function (input) {
+      validate: async (input) => {
         if (validator.validate(input)) {
           return true;
         } else {
@@ -53,16 +53,10 @@ async function genEmployee() {
       type: "input",
       name: "officeNumber",
       message: "What is the team manager's phone number?",
-      validate: async function (input) {
+      validate: async (input) => {
         if (!phoneNumber(input)) return "Please enter a valid phone number";
         return true;
       },
-    },
-    {
-      type: "list",
-      name: "addMember",
-      message: "Which type of team member would you like to add?",
-      choices: ["Engineer", "Intern", "I don't want to add any members"],
     },
   ]);
   const manager = new Manager(
@@ -71,15 +65,24 @@ async function genEmployee() {
     managerInfo.email,
     managerInfo.officeNumber
   );
-
   team.push(manager);
+
+  for (var i = 0; i < team.length; i++) {
+    let memberType = await inquirer.prompt([
+      {
+        type: "list",
+        name: "type",
+        message: "Which type of team member would you like to add?",
+        choices: ["Engineer", "Intern", "I don't want to add any members"],
+      },
+    ]);
+    memberType = memberType.type;
+  }
 }
 
-genEmployee();
+init();
 //Employee parent class with the following properties: name, id and hte following methods: getName(), getId(), getEmail(), getRole()
 
 //in addition to Employee's properties and methods, Manager will also have the following: officeNumber, getRole() overidden to return manager
 
 //In addition to employee's properties and methods, engineer will also have the following: github username, getGithub() getRole() overidden to return engineer
-
-// in addition to employees properties and methods intern will also have the following: school getSchool() getRole() overidden to return inter
