@@ -48,7 +48,7 @@ async function genEmployee() {
     },
     {
       type: "input",
-      name: "phoneNumber",
+      name: "officeNumber",
       message: "What is the team manager's phone number?",
       validate: async function (input) {
         if (!phoneNumber(input)) return "Please enter a valid phone number";
@@ -60,7 +60,7 @@ async function genEmployee() {
     managerInfo.name,
     managerInfo.id,
     managerInfo.email,
-    managerInfo.phoneNumber
+    managerInfo.officeNumber
   );
 
   team.push(manager);
