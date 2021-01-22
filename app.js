@@ -62,7 +62,16 @@ async function genEmployee() {
     managerInfo.email,
     managerInfo.phoneNumber
   );
+
+  team.push(manager);
 }
+
+// {
+//   type: "list",
+//   name: "addMember",
+//   message: "Which type of team member would you like to add?",
+//   choices: ["Engineer", "Intern", "I don't want to add any members"],
+// },
 
 genEmployee();
 //Employee parent class with the following properties: name, id and hte following methods: getName(), getId(), getEmail(), getRole()
