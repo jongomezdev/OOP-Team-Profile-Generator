@@ -1,4 +1,7 @@
 // Require modules
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
 const fs = require("fs");
 const inquirer = require("inquirer");
 const path = require("path");
@@ -55,6 +58,12 @@ async function genEmployee() {
         return true;
       },
     },
+    {
+      type: "list",
+      name: "addMember",
+      message: "Which type of team member would you like to add?",
+      choices: ["Engineer", "Intern", "I don't want to add any members"],
+    },
   ]);
   const manager = new Manager(
     managerInfo.name,
@@ -65,13 +74,6 @@ async function genEmployee() {
 
   team.push(manager);
 }
-
-// {
-//   type: "list",
-//   name: "addMember",
-//   message: "Which type of team member would you like to add?",
-//   choices: ["Engineer", "Intern", "I don't want to add any members"],
-// },
 
 genEmployee();
 //Employee parent class with the following properties: name, id and hte following methods: getName(), getId(), getEmail(), getRole()
