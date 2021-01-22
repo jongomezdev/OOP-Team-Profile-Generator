@@ -90,6 +90,18 @@ async function init() {
       },
       {
         type: "input",
+        name: "id",
+        message: `What is the team ${memberType}'s id?`,
+        validate: async (input) => {
+          if (input > 0) {
+            return true;
+          } else {
+            return "Please enter a NUMBER greater than zero";
+          }
+        },
+      },
+      {
+        type: "input",
         name: "email",
         message: `What is the ${memberType}'s email?`,
         validate: async (input) => {
@@ -108,12 +120,22 @@ async function init() {
         }?`,
       },
     ]);
+    const employee =
+      memberType === "Engineer"
+        ? new Engineer(
+            employeeInfo.name,
+            employeeInfo.id,
+            employeeInfo.email,
+            employeeInfo.info
+          )
+        : new Intern(
+            employeeInfo.name,
+            employeeInfo.id,
+            employeeInfo.email,
+            employeeInfo.info
+          );
+    team.push(employee);
   }
 }
 
 init();
-//Employee parent class with the following properties: name, id and hte following methods: getName(), getId(), getEmail(), getRole()
-
-//in addition to Employee's properties and methods, Manager will also have the following: officeNumber, getRole() overidden to return manager
-
-//In addition to employee's properties and methods, engineer will also have the following: github username, getGithub() getRole() overidden to return engineer
