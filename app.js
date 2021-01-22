@@ -1,6 +1,7 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 const path = require("path");
+const validator = require("email-validator");
 
 let team = [];
 
@@ -24,6 +25,18 @@ async function genEmployee() {
           return true;
         } else {
           return "Please enter a NUMBER greater than zero";
+        }
+      },
+    },
+    {
+      type: "input",
+      name: "email",
+      message: "What is the team manager's email?",
+      validate: async function (input) {
+        if (validator.validate(input)) {
+          return true;
+        } else {
+          return "Please enter a valid email address";
         }
       },
     },
