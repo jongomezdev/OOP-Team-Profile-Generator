@@ -88,6 +88,25 @@ async function init() {
           return true;
         },
       },
+      {
+        type: "input",
+        name: "email",
+        message: `What is the ${memberType}'s email?`,
+        validate: async (input) => {
+          if (validator.validate(input)) {
+            return true;
+          } else {
+            return "Please enter a valid email address";
+          }
+        },
+      },
+      {
+        type: "input",
+        name: "info",
+        message: `What is the ${memberType}'s ${
+          memberType == "Engineer" ? "GitHub" : "School"
+        }?`,
+      },
     ]);
   }
 }
