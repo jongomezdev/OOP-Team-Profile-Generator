@@ -1,9 +1,15 @@
+// Require modules
 const fs = require("fs");
 const inquirer = require("inquirer");
 const path = require("path");
 const validator = require("email-validator");
 
 let team = [];
+
+function phoneNumber(phone) {
+  const phoneno = /^\d{10}$/;
+  return phoneno.test(phone);
+}
 
 async function genEmployee() {
   const managerInfo = await inquirer.prompt([
@@ -38,6 +44,15 @@ async function genEmployee() {
         } else {
           return "Please enter a valid email address";
         }
+      },
+    },
+    {
+      type: "input",
+      name: "phoneNumber",
+      message: "What is the team manager's phone number?",
+      validate: async function (input) {
+        if (!phoneNumber(input)) return "Please enter a valid phone number";
+        return true;
       },
     },
   ]);
