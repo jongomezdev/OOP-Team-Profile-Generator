@@ -77,6 +77,18 @@ async function init() {
       },
     ]);
     memberType = memberType.type;
+
+    const employeeInfo = await inquirer.prompt([
+      {
+        type: "input",
+        name: "name",
+        message: `What is the ${memberType}'s name?`,
+        validate: async (input) => {
+          if (input.length <= 0) return "Please enter a name";
+          return true;
+        },
+      },
+    ]);
   }
 }
 
