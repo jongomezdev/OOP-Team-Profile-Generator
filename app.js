@@ -56,6 +56,12 @@ async function genEmployee() {
       },
     },
   ]);
+  const manager = new Manager(
+    managerInfo.name,
+    managerInfo.id,
+    managerInfo.email,
+    managerInfo.phoneNumber
+  );
 }
 
 genEmployee();
