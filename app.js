@@ -58,6 +58,15 @@ async function init() {
         return true;
       },
     },
+    {
+      type: "input",
+      name: "members",
+      message: "How many team members are there?",
+      validate: async (input) => {
+        if (parseInt(input) <= 0) return "Please add a team member";
+        return true;
+      },
+    },
   ]);
   const manager = new Manager(
     managerInfo.name,
