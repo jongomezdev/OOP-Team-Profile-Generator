@@ -7,6 +7,9 @@ const inquirer = require("inquirer");
 const path = require("path");
 const validator = require("email-validator");
 
+const OUTPUT_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(OUTPUT_DIR, "team.html");
+
 let team = [];
 
 function phoneNumber(phone) {
@@ -63,7 +66,7 @@ async function init() {
       name: "members",
       message: "How many team members are there?",
       validate: async (input) => {
-        if (parseInt(input) <= 0) return "Please add a team member";
+        if (Number(input) <= 0) return "Please add a team member";
         return true;
       },
     },
@@ -76,13 +79,13 @@ async function init() {
   );
   team.push(manager);
 
-  for (var i = 0; i < team.length; i++) {
+  for (var i = 0; i < managerInfo.members; i++) {
     let memberType = await inquirer.prompt([
       {
         type: "list",
         name: "type",
         message: "Which type of team member would you like to add?",
-        choices: ["Engineer", "Intern", "I don't want to add any members"],
+        choices: ["Engineer", "Intern"],
       },
     ]);
     memberType = memberType.type;
@@ -145,6 +148,8 @@ async function init() {
           );
     team.push(employee);
   }
+  fs.writeFileSync(outputPath, render(team), "utf-8");
+  console.log(`Success!`);
 }
 
 init();
