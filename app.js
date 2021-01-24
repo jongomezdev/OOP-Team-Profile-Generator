@@ -13,6 +13,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 let team = [];
 
+// Using a RegEx Pattern to check for 10 digit phone number
 function phoneNumber(phone) {
   const phoneno = /^\d{10}$/;
   return phoneno.test(phone);
