@@ -9,19 +9,26 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
     <title>My Team</title>
   </head>
   <body>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12 jumbotron header">
-          <h1></h1>
-        </div>
+    <div id="jumbo" class="jumbotron jumbotron-fluid text-white">
+      <div class="container">
+        <h1 class="display-3 text-center">My Team</h1>
       </div>
     </div>
     <div class="container">
       <div class="row">
-        <div class="team-area col-12">{{ team }}</div>
+        <div class="team-area col-12 d-flex justify-content-center">
+          {{ team }}
+        </div>
       </div>
     </div>
   </body>
