@@ -13,13 +13,13 @@ test("Can set a name via constructor arguments", () => {
 
 test("Can set id via constructor argument", () => {
   const testValue = 100;
-  const e = new Employee("Jargin", testValue);
+  const e = new Employee("number", testValue);
   expect(e.id).toBe(testValue);
 });
 
 test("Can set email via constructor argument", () => {
   const testValue = "test@test.com";
-  const e = new Employee("Jargin", 1, testValue);
+  const e = new Employee("email", 1, testValue);
   expect(e.email).toBe(testValue);
 });
 
@@ -31,17 +31,17 @@ test("Can get name using getName()", () => {
 
 test("Can get id using getId()", () => {
   const testValue = 100;
-  const e = new Employee("Jargin", testValue);
+  const e = new Employee("number", testValue);
   expect(e.getId()).toBe(testValue);
 });
 test("Can get email using getEmail()", () => {
   const testValue = "test@test.com";
-  const e = new Employee("Jargin", 1, testValue);
+  const e = new Employee("email", 1, testValue);
   expect(e.getEmail()).toBe(testValue);
 });
 
 test('getRole() outputs "Employee"', () => {
   const testValue = "Employee";
-  const e = new Employee("Jonathan", 1, "test@test.com");
+  const e = new Employee("email", 1, "test@test.com");
   expect(e.getRole()).toBe(testValue);
 });
