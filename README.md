@@ -65,4 +65,6 @@ The following image demonstrates the application functionality:
 
 ![README Generator demo](assets/teamprofilegen.png)
 
+[![Live Demo](https://img.youtube.com/vi/VID/0.jpg)](https://www.youtube.com/watch?v=HzJtIh-KgBw)
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HzJtIh-KgBw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
