@@ -49,6 +49,8 @@ Check out my other repositories in the link below:
 
 ## Tests
 
+Run tests with `npm test`. Testing with [Jest](https://jestjs.io/docs/en/getting-started.html).
+
 ```
 Test Suites: 4 passed, 4 total
 Tests:       17 passed, 17 total
