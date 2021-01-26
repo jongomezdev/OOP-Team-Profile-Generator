@@ -64,3 +64,5 @@ Ran all test suites matching /test\\*/i.
 The following image demonstrates the application functionality:
 
 ![README Generator demo](assets/teamprofilegen.png)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HzJtIh-KgBw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
