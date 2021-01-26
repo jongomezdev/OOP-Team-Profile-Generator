@@ -49,6 +49,6 @@ Check out my other repositories in the link below:
 
 ## Demo
 
-The following animation demonstrates the application functionality:
+The following image demonstrates the application functionality:
 
-![README Generator demo](assets/readmedemo.gif)
+![README Generator demo](assets/teamprofilegen.png)

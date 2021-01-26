@@ -12,6 +12,7 @@ const render = require("./lib/htmlRender");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
+// Team array that holds the manager and employees
 let team = [];
 
 // Using a RegEx Pattern to check for 10 digit phone number
