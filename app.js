@@ -8,6 +8,7 @@ const path = require("path");
 const validator = require("email-validator");
 const render = require("./lib/htmlRender");
 
+// Here we are telling the computer that we want to use a directory called output to create the team.html
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
@@ -19,6 +20,7 @@ function phoneNumber(phone) {
   return phoneno.test(phone);
 }
 
+// Initialize the inquirer.prompt npm to ask user questions and parse the input + validate answers.
 async function init() {
   const managerInfo = await inquirer.prompt([
     {
@@ -73,6 +75,7 @@ async function init() {
       },
     },
   ]);
+  // Creating the manager constructor
   const manager = new Manager(
     managerInfo.name,
     managerInfo.id,
@@ -81,6 +84,7 @@ async function init() {
   );
   team.push(manager);
 
+  // For loop that iterates through number of team members chosen and creates new member type.
   for (var i = 0; i < managerInfo.members; i++) {
     let memberType = await inquirer.prompt([
       {
@@ -91,7 +95,7 @@ async function init() {
       },
     ]);
     memberType = memberType.type;
-
+    // Initialize inquirer.prompt for Employee input.
     const employeeInfo = await inquirer.prompt([
       {
         type: "input",
@@ -134,6 +138,7 @@ async function init() {
         }?`,
       },
     ]);
+    // Creating the employee constructer with Engineer & Intern.
     const employee =
       memberType === "Engineer"
         ? new Engineer(
@@ -150,8 +155,9 @@ async function init() {
           );
     team.push(employee);
   }
+  // Render user input to the output dir in an html format.
   fs.writeFileSync(outputPath, render(team), "utf-8");
   console.log(`Success!`);
 }
-
+// Initialize the inquirer prompt
 init();
