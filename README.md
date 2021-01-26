@@ -47,6 +47,16 @@ Check out my other repositories in the link below:
 
 - For any additional questions, please [email](mailto:jongomezdev@gmail.com) me.
 
+## Tests
+
+```
+Test Suites: 4 passed, 4 total
+Tests:       17 passed, 17 total
+Snapshots:   0 total
+Time:        1.402 s
+Ran all test suites matching /test\\*/i.
+```
+
 ## Demo
 
 The following image demonstrates the application functionality:
